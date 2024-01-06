@@ -24,6 +24,8 @@
     <link rel="stylesheet" href={{ asset('/css/flaticon.css') }}>
     <link rel="stylesheet" href={{ asset('/css/icomoon.css') }}>
     <link rel="stylesheet" href={{ asset('/css/style.css') }}>
+
+    <script async src={{asset("/js/axios.min.js")}}></script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -37,9 +39,12 @@
         </svg>
     </div>
 
-
     <main>
+        @include('Components.navbar')
+
         @yield('content')
+
+        @include('Components.footer')
     </main>
 
     <script src={{ asset('/js/jquery.min.js') }}></script>
