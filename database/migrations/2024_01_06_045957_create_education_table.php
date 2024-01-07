@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
 
             $table->string("degree_name", 100);
-            $table->string("university_name", 100);
+            $table->string("institute_name", 100);
             $table->string("session_year", 50);
             $table->string("short_description", 300);
 
