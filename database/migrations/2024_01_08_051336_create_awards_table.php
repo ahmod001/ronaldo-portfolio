@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("organization_name", 100);
             $table->string("achievement", 100);
             $table->string("date", 50);
+            $table->string("credential_url",100)->nullable();
             $table->string("short_description", 300);
 
             $table->timestamp('created_at')->useCurrent();

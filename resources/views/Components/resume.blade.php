@@ -204,19 +204,7 @@
                 {{-- Awards --}}
                 <div id="page-4" class="page four">
                     <h2 class="heading">Awards</h2>
-                    <div class="resume-wrap d-flex ftco-animate">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-ideas"></span>
-                        </div>
-                        <div class="text pl-3">
-                            <span class="date">2014-2015</span>
-                            <h2>Top 10 Web Developer</h2>
-                            <span class="position">Cambridge University</span>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary
-                                regelialia. It is a paradisematic country, in which roasted parts of sentences fly
-                                into your mouth.</p>
-                        </div>
-                    </div>
+                    <div id="awards"></div>
                 </div>
             </div>
         </div>
@@ -280,9 +268,34 @@
             console.error('Something went wrong');
         }
     }
+    const getAward = async () => {
+        const awardSection = getElementById('awards');
+
+        try {
+            const res = await axios.get('/award');
+            const awardList = res.data?.data;
+
+            awardSection.innerHTML = '';
+
+            awardList.map(award => {
+                const {
+                    achievement,
+                    organization_name,
+                    short_description,
+                    date
+                } = award;
+
+                awardSection.innerHTML += resumeCardComponent(achievement, organization_name,
+                    short_description, date)
+            })
+        } catch (error) {
+            console.error('Something went wrong');
+        }
+    }
 
     getExperience();
     getEducation();
+    getAward();
 
 
     // Component
