@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\ResponseHelper;
+use App\Models\Award;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\User;
@@ -21,15 +22,21 @@ class UserController extends Controller
         return ResponseHelper::success(User::first());
     }
 
-    function getEducation(Request $request)
+    function getEducationList(Request $request)
     {
         $data = Education::latest()->get();
         return ResponseHelper::success($data);
     }
 
-    function getExperience(Request $request)
+    function getExperienceList(Request $request)
     {
         $data = Experience::latest()->get();
+        return ResponseHelper::success($data);
+    }
+
+    function getAwardList(Request $request)
+    {
+        $data = Award::latest()->get();
         return ResponseHelper::success($data);
     }
 }

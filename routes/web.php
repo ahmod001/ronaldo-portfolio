@@ -13,6 +13,7 @@ Route::controller(PageController::class)->group(function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('/hero', 'getHeroData');
     Route::get('/about', 'getAboutData');
-    Route::get('/education', 'getEducation');
-    Route::get('/experience', 'getExperience');
+    Route::get('/education', 'getEducationList');
+    Route::get('/experience', 'getExperienceList');
+    Route::get('/award', 'getAwardList');
 });

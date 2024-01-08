@@ -273,7 +273,8 @@
 
                 } = experience;
 
-                experienceSection.innerHTML += resumeCardComponent(position, company_name, short_description, duration)
+                experienceSection.innerHTML += resumeCardComponent(position, company_name,
+                    short_description, duration)
             })
         } catch (error) {
             console.error('Something went wrong');
