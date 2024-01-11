@@ -28,11 +28,7 @@
     </div>
 </section>
 
-<script type="module">
-    import {
-        getElementById
-    } from "/js/utils.mjs";
-
+<script>
     (async () => {
         try {
             const res = await axios.get('/about');
@@ -48,9 +44,9 @@
                 zip_code
             } = res.data?.data;
 
-            getElementById('about-me-img').style.backgroundImage = `url(${img_url})`;
+            $('#about-me-img').css('background-image', `url(${img_url})`);
 
-            getElementById('about-me-info').innerHTML = (`
+            $('#about-me-info').html(`
                       <h1 class="big">About</h1>
                         <h2 class="mb-4">About Me</h2>
                         <p>${short_description}</p>

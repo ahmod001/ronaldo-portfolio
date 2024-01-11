@@ -212,19 +212,15 @@
 </section>
 
 <script type="module">
-    import {
-        getElementById
-    } from "/js/utils.mjs"
-
 
     const getEducation = async () => {
-        const educationSection = getElementById('educations');
+        const educationSection = $('#educations');
 
         try {
             const res = await axios.get('/education');
             const educationList = res.data?.data;
 
-            educationSection.innerHTML = '';
+            educationSection.empty();
 
             educationList.map(education => {
                 const {
@@ -234,23 +230,22 @@
                     short_description
                 } = education;
 
-                educationSection.innerHTML += resumeCardComponent(degree_name, institute_name,
+                educationSection.append(resumeCardComponent(degree_name, institute_name,
                     short_description,
-                    session_year)
+                    session_year))
             })
         } catch (error) {
             console.error('Something went wrong');
         }
     }
-
     const getExperience = async () => {
-        const experienceSection = getElementById('experiences');
+        const experienceSection = $('#experiences');
 
         try {
             const res = await axios.get('/experience');
             const experienceList = res.data?.data;
 
-            experienceSection.innerHTML = '';
+            experienceSection.empty();
 
             experienceList.map(experience => {
                 const {
@@ -261,21 +256,21 @@
 
                 } = experience;
 
-                experienceSection.innerHTML += resumeCardComponent(position, company_name,
-                    short_description, duration)
+                experienceSection.append(resumeCardComponent(position, company_name,
+                    short_description, duration))
             })
         } catch (error) {
             console.error('Something went wrong');
         }
     }
     const getAward = async () => {
-        const awardSection = getElementById('awards');
+        const awardSection = $('#awards');
 
         try {
             const res = await axios.get('/award');
             const awardList = res.data?.data;
 
-            awardSection.innerHTML = '';
+            awardSection.empty();
 
             awardList.map(award => {
                 const {
@@ -285,8 +280,8 @@
                     date
                 } = award;
 
-                awardSection.innerHTML += resumeCardComponent(achievement, organization_name,
-                    short_description, date)
+                awardSection.append(resumeCardComponent(achievement, organization_name,
+                    short_description, date))
             })
         } catch (error) {
             console.error('Something went wrong');

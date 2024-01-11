@@ -25,7 +25,8 @@
     <link rel="stylesheet" href={{ asset('/css/icomoon.css') }}>
     <link rel="stylesheet" href={{ asset('/css/style.css') }}>
 
-    <script async src={{asset("/js/axios.min.js")}}></script>
+    <script src={{asset("/js/axios.min.js")}}></script>
+    <script src={{ asset('/js/jquery.min.js') }}></script>
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -47,7 +48,7 @@
         @include('Components.footer')
     </main>
 
-    <script src={{ asset('/js/jquery.min.js') }}></script>
+    
     <script src={{ asset('/js/jquery-migrate-3.0.1.min.js') }}></script>
     <script src={{ asset('/js/popper.min.js') }}></script>
     <script src={{ asset('/js/bootstrap.min.js') }}></script>

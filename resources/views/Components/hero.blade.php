@@ -21,11 +21,7 @@
     </div>
 </section>
 
-<script type="module">
-    import {
-        getElementById
-    } from "/js/utils.mjs";
-
+<script>
     (async () => {
         try {
             const res = await axios.get('/hero');
@@ -34,8 +30,8 @@
                 profession,
             } = res.data?.data;
 
-            getElementById('name').innerText = name;
-            getElementById('profession').innerText= profession;
+            $('#name').text(name);
+            $('#profession').text(profession);
 
         } catch (error) {
             console.error("Something went wrong");
